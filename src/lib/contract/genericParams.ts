@@ -8,7 +8,7 @@ class GenericParams<T extends Entity> implements IGenericParams<T> {
   entities: T[];
   status: boolean;
   tag: any;
-  id: number;
+  id: string;
 }
 
 export default GenericParams;

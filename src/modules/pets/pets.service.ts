@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import GenericParams from 'src/lib/contract/genericParams';
-import GenericResponse from 'src/lib/contract/genericResponse';
+import GenericParams from '../../lib/contract/genericParams';
+import GenericResponse from '../../lib/contract/genericResponse';
 import Service from 'src/lib/service/service';
 import petModel from './entities/pet.model';
 

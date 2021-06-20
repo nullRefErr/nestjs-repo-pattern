@@ -8,7 +8,6 @@ class GenericResponse<T extends Entity> implements IGenericResponse<T> {
   entities: T[];
   status: boolean;
   tag: any;
-  id: number;
 }
 
 export default GenericResponse;

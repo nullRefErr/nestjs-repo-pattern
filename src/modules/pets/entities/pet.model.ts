@@ -1,4 +1,4 @@
-import EntityBase from 'src/lib/entity/entityBase';
+import EntityBase from '../../../lib/entity/entityBase';
 
 export default class extends EntityBase {
   name: string;

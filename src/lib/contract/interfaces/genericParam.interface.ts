@@ -5,7 +5,7 @@ interface IGenericParams<T extends Entity> {
   entities: T[];
   status: boolean;
   tag: any;
-  id: number;
+  id: string;
 }
 
 export default IGenericParams;
