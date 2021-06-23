@@ -1,6 +1,4 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import GenericParams from 'src/lib/contract/genericParams';
-import GenericResponse from 'src/lib/contract/genericResponse';
 import { PetsController } from '../pets.controller';
 import PetsService from '../pets.service';
 
@@ -10,7 +8,7 @@ describe('PetsController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [PetsController],
-      providers: [PetsService, GenericParams, GenericResponse],
+      providers: [PetsService],
     }).compile();
 
     controller = module.get<PetsController>(PetsController);
