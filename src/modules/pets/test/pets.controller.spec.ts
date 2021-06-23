@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import GenericParams from '../../../lib/contract/genericParams';
-import GenericResponse from '../../../lib/contract/genericResponse';
+import GenericParams from 'src/lib/contract/genericParams';
+import GenericResponse from 'src/lib/contract/genericResponse';
 import { PetsController } from '../pets.controller';
 import PetsService from '../pets.service';
 
