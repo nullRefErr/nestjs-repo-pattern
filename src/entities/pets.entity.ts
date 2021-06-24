@@ -1,7 +1,13 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 
 @Entity('Pets')
-export default class extends BaseEntity {
+export class Pets {
+  constructor(name: string, bday: string, id: string) {
+    this.id = id;
+    this.bday = bday;
+    this.name = name;
+  }
+
   @PrimaryGeneratedColumn()
   id: string;
   @Column()

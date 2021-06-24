@@ -1,3 +1,3 @@
-import Pets from './pets.entity';
+import { Pets } from './pets.entity';
 
 export { Pets };

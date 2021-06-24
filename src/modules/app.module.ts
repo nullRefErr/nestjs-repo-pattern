@@ -1,21 +1,16 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Pets } from 'src/entities';
+import DatabaseConfig from 'src/config/database.config';
 import { Connection } from 'typeorm';
 import { PetsModule } from './pets/pets.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      entities: [Pets],
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'qwertyu123',
-      database: 'testDb',
-      synchronize: true,
+    ConfigModule.forRoot({
+      isGlobal: true,
     }),
+    TypeOrmModule.forRoot(DatabaseConfig),
     PetsModule,
   ],
 })
