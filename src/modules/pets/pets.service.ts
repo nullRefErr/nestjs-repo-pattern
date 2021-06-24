@@ -14,4 +14,7 @@ export default class PetsService {
     const a = await this.petsRepository.find();
     return a;
   }
+  getError() : string { //added to test sentry
+    return 'error'
+  }
 }

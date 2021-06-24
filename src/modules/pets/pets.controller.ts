@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, InternalServerErrorException } from '@nestjs/common';
 import { Pets } from 'src/entities';
 import PetsService from './pets.service';
 
@@ -13,5 +13,18 @@ export class PetsController {
   @Get()
   async Pet(): Promise<Pets[]> {
     return this.petsService.read();
+  }
+  @Get() //added to test sentry
+  getError(): string {
+    /*
+    try { 
+      throw new InternalServerErrorException();
+    } catch (e) {
+      console.log(e)
+      Sentry.captureException(e)
+    }
+    */
+    throw new InternalServerErrorException();
+    return this.petsService.getError();
   }
 }
