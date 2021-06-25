@@ -1,12 +1,12 @@
-import { INestApplication } from "@nestjs/common";
+import { INestApplication } from '@nestjs/common';
 import * as Sentry from '@sentry/node';
 import * as Tracing from '@sentry/tracing';
 import { SentryInterceptor } from './sentry.interceptor';
 
-export function sentry(app : INestApplication) {
-//Sentry initialization
+export function sentry(app: INestApplication) {
+  //Sentry initialization
   Sentry.init({
-    dsn: "https://c629a407a109484b960378dc495bf9b1@sentry.24saatteis.com/8",
+    dsn: 'https://c629a407a109484b960378dc495bf9b1@sentry.24saatteis.com/8',
     integrations: [
       new Sentry.Integrations.Http({ tracing: true }),
 
