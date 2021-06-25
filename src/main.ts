@@ -6,12 +6,11 @@ import { sentry } from './tracingModule/Sentry'
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   swagger(app) //initialize swagger
-  
-  sentry(app) //initialize sentry
-   
   const configService = app.get(ConfigService);
   const port = configService.get<number>('PORT');
-
+  const dsn = configService.get<string>('DSN');
+  const tsr = configService.get<number>('TRACES_SAMPLE_RATE')
+  sentry(app, dsn, tsr) //initialize sentry
   await app.listen(port);
   console.log(`App listening => http://localhost:${port}/`);
 }
