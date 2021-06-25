@@ -28,7 +28,7 @@ describe('PetsService', () => {
       ],
     }).compile();
     service = module.get<PetsService>(PetsService);
-    repo = module.get<Repository<Pets>>(getRepositoryToken(Pets));
+    // repo = module.get<Repository<Pets>>(getRepositoryToken(Pets));
 
     service = module.get<PetsService>(PetsService);
   });
