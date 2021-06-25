@@ -1,5 +1,4 @@
 import { Controller, Get, Param, InternalServerErrorException } from '@nestjs/common';
-import { Controller, Get } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Pets } from 'src/entities';
 import PetsService from './pets.service';
