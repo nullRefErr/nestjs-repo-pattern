@@ -15,4 +15,7 @@ export default class PetsService {
   async GetAll(): Promise<Pets[]> {
     return this.petsRepository.find();
   }
+  getError() : string { //added to test sentry
+    return 'error'
+  }
 }
