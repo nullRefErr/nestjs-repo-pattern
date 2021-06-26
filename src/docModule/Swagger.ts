@@ -9,10 +9,5 @@ export function swagger(app: INestApplication) {
     .addTag('pets')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-<<<<<<< HEAD
-  SwaggerModule.setup('api', app, document); //Swagger UI can be reached from http://localhost:3000/api
-}
-=======
   SwaggerModule.setup('doc', app, document); //Swagger UI can be reached from http://localhost:3000/doc
 }
->>>>>>> b5636987e2f995429c22cde7e460768508000aa5
