@@ -5,7 +5,7 @@ import { AuthGuard } from '@nestjs/passport';
 @Controller('auth')
 export class AuthController {
   constructor(private configService: ConfigService) {}
-  @UseGuards(AuthGuard('google'))
+  @UseGuards(AuthGuard('jwt'))
   @Post('login')
   async login(@Req() req) {
     return req.user;
