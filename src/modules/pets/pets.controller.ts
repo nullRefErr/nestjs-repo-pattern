@@ -1,7 +1,7 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { AuthGuard } from '@nestjs/passport';
-import { Pets } from 'src/entities';
+import { Pets } from 'src/entities/Pets';
 import PetsService from './pets.service';
 
 @Controller('pets')

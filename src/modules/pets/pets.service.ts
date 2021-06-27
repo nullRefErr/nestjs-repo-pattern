@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { Pets } from 'src/entities';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
+import { Pets } from 'src/entities/Pets';
 
 @Injectable()
 export default class PetsService {
