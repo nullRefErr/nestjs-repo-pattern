@@ -12,7 +12,7 @@ export class PetsController {
   ) {}
 
   @Get()
-  @UseGuards(AuthGuard('jwt'))
+  //@UseGuards(AuthGuard('jwt'))
   async Pets(): Promise<Pets[]> {
     return this.petsService.GetAll();
   }
