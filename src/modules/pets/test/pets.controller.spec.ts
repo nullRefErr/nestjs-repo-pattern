@@ -1,6 +1,7 @@
 import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 import { Pets } from 'src/entities/Pets';
+import { CustomLogger } from 'src/modules/loggerModule/logger.service';
 import { PetsController } from '../pets.controller';
 import PetsService from '../pets.service';
 
@@ -20,6 +21,7 @@ describe('PetsController', () => {
       providers: [
         PetsService,
         ConfigService,
+        CustomLogger,
         {
           provide: PetsService,
           useValue: {
