@@ -1,13 +1,15 @@
 import { ConfigService } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
-import { Pets } from 'src/entities';
+import { Pets } from 'src/entities/Pets';
 import { PetsController } from '../pets.controller';
 import PetsService from '../pets.service';
 
-const petArray = [
-  new Pets('Test Cat 2', 'Test Breed 2', '3'),
-  new Pets('Test Cat 3', 'Test Breed 3', '2'),
-];
+const pet1 = new Pets();
+pet1.bday = '3';
+pet1.id = '1';
+pet1.name = 'Lokum';
+
+const petArray = [pet1];
 describe('PetsController', () => {
   let controller: PetsController;
   let service: PetsService;

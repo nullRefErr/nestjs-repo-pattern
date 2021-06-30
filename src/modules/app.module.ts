@@ -22,7 +22,7 @@ import { PetsModule } from './pets/pets.module';
         password: configService.get<string>('TYPEORM_PASSWORD'),
         host: configService.get<string>('TYPEORM_HOST'),
         logging: configService.get<boolean>('TYPEORM_LOGGING'),
-        synchronize: false,
+        synchronize: configService.get<boolean>('TYPEORM_SYNCHRONIZE'),
         cli: {
           migrationsDir: 'dist/migrations/*{.ts,.js}',
         },
