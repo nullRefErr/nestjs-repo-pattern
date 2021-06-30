@@ -1,13 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 
 @Entity('Pets')
-export class Pets {
-  constructor(name: string, bday: string, id: string) {
-    this.id = id;
-    this.bday = bday;
-    this.name = name;
-  }
-
+export class Pets extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: string;
   @Column()

@@ -19,7 +19,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "typeorm:cli": "node --require ts-node/register ./node_modules/typeorm/cli.js"
+    "typeorm:add-entity": "node --require ts-node/register ./node_modules/typeorm/cli.js entity:create -d src/entities -n",
+    "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "@nestjs/common": "^7.6.15",
@@ -34,10 +35,13 @@
     "@sentry/node": "^6.7.2",
     "dotenv": "^10.0.0",
     "mysql2": "^2.2.5",
+<<<<<<< HEAD
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+=======
+>>>>>>> d37351b197c7f2d27e06c458bf1cb922d6006c53
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.6",
@@ -51,9 +55,6 @@
     "@types/express": "^4.17.11",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.36",
-    "@types/passport-google-oauth20": "^2.0.8",
-    "@types/passport-jwt": "^3.0.5",
-    "@types/passport-local": "^1.0.33",
     "@types/supertest": "^2.0.10",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
