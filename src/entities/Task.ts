@@ -12,6 +12,34 @@ export enum Status {
 
 @Entity('Task')
 export class Task extends Common {
+  constructor(
+    name: string,
+    customerId: number,
+    assignee: User,
+    reporter: User,
+    typeId: TaskType,
+    startedTime: Date,
+    closedTime: Date,
+    countryId: number,
+    status: Status,
+    dueDate: Date,
+    createdBy: number,
+    description?: string,
+  ) {
+    super();
+    this.name = name;
+    this.description = description ? description : '';
+    this.status = status;
+    this.countryId = countryId;
+    this.assignee = assignee;
+    this.reporter = reporter;
+    this.startedTime = startedTime;
+    this.closedTime = closedTime;
+    this.typeId = typeId;
+    this.customerId = customerId;
+    this.dueDate = dueDate;
+    this.createdBy = createdBy;
+  }
   @PolymorphicChildren(() => Relations, {
     eager: false,
     hasMany: true,
@@ -34,15 +62,15 @@ export class Task extends Common {
   @Column('int', { nullable: true, name: 'customer_id' })
   customerId: number;
 
-  @ManyToOne((type) => User)
+  @ManyToOne(() => User)
   @JoinColumn({ name: 'reporter_id', referencedColumnName: 'id' })
   reporter: User;
 
-  @ManyToOne((type) => User)
+  @ManyToOne(() => User)
   @JoinColumn({ name: 'assignee_id', referencedColumnName: 'id' })
   assignee: User;
 
-  @ManyToOne((type) => TaskType)
+  @ManyToOne(() => TaskType)
   @JoinColumn({ name: 'type_id', referencedColumnName: 'id' })
   typeId: TaskType;
 

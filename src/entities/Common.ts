@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
   DeleteDateColumn,
 } from 'typeorm';
-import { User } from './User';
+//import { User } from './User';
 export abstract class Common extends BaseEntity {
   @PrimaryGeneratedColumn({ type: 'bigint' })
   id: number;

@@ -12,6 +12,20 @@ export enum Type {
 
 @Entity('Relations')
 export class Relations extends Common implements PolymorphicChildInterface {
+  constructor(
+    owner: Activity | Task,
+    type: Type,
+    relatedObjectId: number,
+    relatedObjectType: string,
+    createdBy: number,
+  ) {
+    super();
+    this.owner = owner;
+    this.type = type;
+    this.relatedObjectId = relatedObjectId;
+    this.relatedObjectType = relatedObjectType;
+    this.createdBy = createdBy;
+  }
   @PolymorphicParent(() => [Activity, Task])
   owner: Activity | Task;
 

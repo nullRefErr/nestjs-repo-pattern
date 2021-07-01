@@ -8,23 +8,25 @@ import { Relations } from './Relations';
 @Entity('Activity')
 export class Activity extends Common {
   constructor(
-    //constructor as an example. will add the other constructors next
     name: string,
     customerId: number,
     assignee: User,
     typeId: ActivityType,
     activityTime: Date,
     countryId: number,
+    createdBy: number,
     description?: string,
   ) {
     super();
     this.name = name;
-    this.description = description;
+    this.description = description ? description : '';
     this.customerId = customerId;
     this.assignee = assignee;
     this.typeId = typeId;
     this.activityTime = activityTime;
     this.customerId = customerId;
+    this.countryId = countryId;
+    this.createdBy = createdBy;
   }
   @PolymorphicChildren(() => Relations, {
     eager: false,
@@ -41,11 +43,11 @@ export class Activity extends Common {
   @Column('int', { name: 'customer_id' })
   customerId: number;
 
-  @ManyToOne((type) => User)
+  @ManyToOne(() => User)
   @JoinColumn({ name: 'assignee_id', referencedColumnName: 'id' })
   assignee: User;
 
-  @ManyToOne((type) => ActivityType)
+  @ManyToOne(() => ActivityType)
   @JoinColumn({ name: 'type_id', referencedColumnName: 'id' })
   typeId: ActivityType;
 

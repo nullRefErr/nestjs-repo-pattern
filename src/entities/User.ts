@@ -9,6 +9,22 @@ export enum Roles {
 
 @Entity('User')
 export class User extends Common {
+  constructor(
+    fullname: string,
+    email: string,
+    countryId: number,
+    language: string,
+    role: Roles,
+    createdBy: number,
+  ) {
+    super();
+    this.fullname = fullname;
+    this.email = email;
+    this.countryId = countryId;
+    this.language = language;
+    this.role = role;
+    this.createdBy = createdBy;
+  }
   @Column('varchar', { length: 100 })
   fullname: string;
 

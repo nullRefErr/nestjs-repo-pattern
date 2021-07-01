@@ -4,10 +4,22 @@ import { EventType } from './EventType';
 
 @Entity('Customer_Funnel')
 export class CustomerFunnel extends Common {
+  constructor(
+    customerId: number,
+    eventTypeId: EventType,
+    eventDescription: string,
+    createdBy: number,
+  ) {
+    super();
+    this.customerId = customerId;
+    this.eventTypeId = eventTypeId;
+    this.eventDescription = eventDescription;
+    this.createdBy = createdBy;
+  }
   @Column('int', { name: 'customer_id' })
   customerId: number;
 
-  @ManyToOne((type) => EventType)
+  @ManyToOne(() => EventType)
   @JoinColumn({ name: 'event_type_id', referencedColumnName: 'id' })
   eventTypeId: EventType;
 
