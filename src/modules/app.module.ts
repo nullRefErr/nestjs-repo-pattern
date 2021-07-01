@@ -22,11 +22,10 @@ import { PetsModule } from './pets/pets.module';
         password: configService.get<string>('TYPEORM_PASSWORD'),
         host: configService.get<string>('TYPEORM_HOST'),
         logging: configService.get<boolean>('TYPEORM_LOGGING'),
-        synchronize: configService.get<boolean>('TYPEORM_SYNCHRONIZE'),
         cli: {
           migrationsDir: 'dist/migrations/*{.ts,.js}',
         },
-        entities: ['**/dist/src/entities/*{.ts,.js}'],
+        entities: ['**/dist/entities/*{.ts,.js}'],
         migrations: ['dist/migrations/*{.ts,.js}'],
       }),
     }),
