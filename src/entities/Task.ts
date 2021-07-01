@@ -17,13 +17,13 @@ export class Task extends Common {
     customerId: number,
     assignee: User,
     reporter: User,
-    typeId: TaskType,
-    startedTime: Date,
-    closedTime: Date,
+    typeId: TaskType, 
     countryId: number,
     status: Status,
-    dueDate: Date,
     createdBy: number,
+    startedTime: Date,
+    closedTime?: Date,
+    dueDate?: Date,
     description?: string,
   ) {
     super();

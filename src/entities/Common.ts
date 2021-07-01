@@ -24,8 +24,8 @@ export abstract class Common extends BaseEntity {
 
   // @ManyToOne(type => User, {nullable : true})
   // @JoinColumn({name:"updated_by", referencedColumnName: "id"})
-  @Column('int', { nullable: true, name: 'updated_by', default: null })
-  updatedBy: number;
+  @Column('int', { nullable: true, name: 'updated_by' })
+  updatedBy?: number | null;
 
   @DeleteDateColumn({ type: 'datetime', name: 'deleted_at' })
   deletedAt: Date;
