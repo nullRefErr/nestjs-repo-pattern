@@ -4,6 +4,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { Pets } from 'src/entities/Pets';
 import { CustomLogger } from '../loggerModule/logger.service';
 import PetsService from './pets.service';
+import { Relations } from 'src/entities/Relations';
 
 @Controller('pets')
 export class PetsController {
@@ -20,8 +21,14 @@ export class PetsController {
   async Pets(): Promise<Pets[]> {
     return this.petsService.GetAll();
   }
+
+  @Get('deneme')
+  async Deneme(): Promise<Relations> {
+    return this.petsService.Add();
+
   @Get('/all')
   async AllPets(): Promise<Pets[]> {
     return this.petsService.GetAll();
+
   }
 }
