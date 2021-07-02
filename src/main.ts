@@ -3,8 +3,11 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './modules/app.module';
 import { swagger } from './docModule/Swagger';
 import { sentry } from './tracingModule/Sentry';
+import { CustomLogger } from './modules/loggerModule/logger.service';
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: new CustomLogger(),
+  });
   swagger(app); //initialize swagger
   const configService = app.get(ConfigService);
   const port = configService.get<number>('PORT');
