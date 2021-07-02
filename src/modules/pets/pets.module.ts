@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { Pets } from 'src/entities/Pets';
 import { RelationsRepository } from 'src/entityRepositories/RelationsRepository';
+import { CustomLogger } from '../loggerModule/logger.service';
 
 @Module({
   imports: [
@@ -12,6 +13,6 @@ import { RelationsRepository } from 'src/entityRepositories/RelationsRepository'
     ConfigModule,
   ],
   controllers: [PetsController],
-  providers: [PetsService],
+  providers: [PetsService, CustomLogger],
 })
 export class PetsModule {}
