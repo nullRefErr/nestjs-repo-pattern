@@ -16,8 +16,7 @@ export class Task extends Common {
     name: string,
     customerId: number,
     assignee: User,
-    reporter: User,
-    typeId: TaskType, 
+    typeId: TaskType,
     countryId: number,
     status: Status,
     createdBy: number,
@@ -32,7 +31,6 @@ export class Task extends Common {
     this.status = status;
     this.countryId = countryId;
     this.assignee = assignee;
-    this.reporter = reporter;
     this.startedTime = startedTime;
     this.closedTime = closedTime;
     this.typeId = typeId;

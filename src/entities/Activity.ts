@@ -1,6 +1,5 @@
 import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { Common } from './Common';
-import { User } from './User';
 import { ActivityType } from './ActivityType';
 import { PolymorphicChildren } from 'typeorm-polymorphic';
 import { Relations } from './Relations';
@@ -10,7 +9,6 @@ export class Activity extends Common {
   constructor(
     name: string,
     customerId: number,
-    assignee: User,
     typeId: ActivityType,
     activityTime: Date,
     countryId: number,
@@ -21,7 +19,6 @@ export class Activity extends Common {
     this.name = name;
     this.description = description ? description : '';
     this.customerId = customerId;
-    this.assignee = assignee;
     this.typeId = typeId;
     this.activityTime = activityTime;
     this.customerId = customerId;
@@ -42,10 +39,6 @@ export class Activity extends Common {
 
   @Column('int', { name: 'customer_id' })
   customerId: number;
-
-  @ManyToOne(() => User)
-  @JoinColumn({ name: 'assignee_id', referencedColumnName: 'id' })
-  assignee: User;
 
   @ManyToOne(() => ActivityType)
   @JoinColumn({ name: 'type_id', referencedColumnName: 'id' })

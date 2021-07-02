@@ -14,7 +14,6 @@ export class ActivityResultNotes extends Common {
     createdBy: number,
   ) {
     super();
-    this.resultNoteValueId = resultNoteValueId;
     this.resultNoteId = resultNoteId;
     this.activityId = activityId;
     this.createdBy = createdBy;
@@ -22,12 +21,8 @@ export class ActivityResultNotes extends Common {
   @ManyToOne(() => Activity)
   @JoinColumn({ name: 'activity_id', referencedColumnName: 'id' })
   activityId: Activity;
-  //ensure uniqueness between activity_id + result_note_id pairs
+
   @ManyToOne(() => ResultNotes)
   @JoinColumn({ name: 'result_note_id', referencedColumnName: 'id' })
   resultNoteId: ResultNotes;
-
-  @ManyToOne(() => ResultNoteValues)
-  @JoinColumn({ name: 'result_note_value_id', referencedColumnName: 'id' })
-  resultNoteValueId: ResultNoteValues;
 }

@@ -33,7 +33,7 @@ export default class PetsService {
     u = await u.save();
 
     const status = Status.TODO;
-    let t = new Task('task1', 10, u, u, TT, 20, status, 5, new Date());
+    let t = new Task('task1', 10, u, TT, 20, status, 5, new Date());
     t = await t.save();
 
     const results = await this.relationsRepository.create({
