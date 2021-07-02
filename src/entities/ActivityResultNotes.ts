@@ -5,12 +5,11 @@ import { ResultNotes } from './ResultNotes';
 import { Activity } from './Activity';
 
 @Entity('Activity_Result_Notes')
-@Unique('activity_result_note_unique_id', ['activityId', 'resultNoteId']) // named; multiple fields
+@Unique('activity_result_note_unique_id', ['activityId', 'resultNoteId'])
 export class ActivityResultNotes extends Common {
   constructor(
     activityId: Activity,
     resultNoteId: ResultNotes,
-    resultNoteValueId: ResultNoteValues,
     createdBy: number,
   ) {
     super();

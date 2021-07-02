@@ -61,10 +61,6 @@ export class Task extends Common {
   customerId: number;
 
   @ManyToOne(() => User)
-  @JoinColumn({ name: 'reporter_id', referencedColumnName: 'id' })
-  reporter: User;
-
-  @ManyToOne(() => User)
   @JoinColumn({ name: 'assignee_id', referencedColumnName: 'id' })
   assignee: User;
 
