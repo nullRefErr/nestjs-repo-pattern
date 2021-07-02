@@ -3,7 +3,7 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
 import { Pets } from 'src/entities/Pets';
-import { RelationsRepository } from 'src/entityRepositories/RelationsRepository';
+import { RelationsRepository } from 'src/helper/EntityRepositoryHelper';
 import { Relations } from 'src/entities/Relations';
 import { Task, Status } from 'src/entities/Task';
 import { User, Roles } from 'src/entities/User';
