@@ -10,7 +10,6 @@ import { ObjectType, Field, Int } from '@nestjs/graphql';
 //import { User } from './User';
 @ObjectType()
 export abstract class Common extends BaseEntity {
-
   @Field(() => Int)
   @PrimaryGeneratedColumn({ type: 'bigint' })
   id: number;

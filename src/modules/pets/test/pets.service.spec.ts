@@ -7,7 +7,7 @@ import PetsService from '../pets.service';
 
 const pet1 = new Pets();
 pet1.bday = '3';
-pet1.id = '1';
+pet1.id = 1;
 pet1.name = 'Lokum';
 
 const petArray = [pet1];
@@ -30,9 +30,7 @@ describe('PetsService', () => {
       ],
     }).compile();
     service = module.get<PetsService>(PetsService);
-    // repo = module.get<Repository<Pets>>(getRepositoryToken(Pets));
-
-    service = module.get<PetsService>(PetsService);
+    repo = module.get<Repository<Pets>>(getRepositoryToken(Pets));
   });
 
   it('should be defined', () => {
