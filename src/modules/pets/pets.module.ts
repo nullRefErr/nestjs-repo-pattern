@@ -4,7 +4,7 @@ import { PetsController } from './pets.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { Pets } from 'src/entities/Pets';
-import { RelationsRepository } from 'src/entityRepositories/RelationsRepository';
+import { RelationsRepository } from 'src/helper/EntityRepositoryHelper';
 import { CustomLogger } from '../loggerModule/logger.service';
 
 @Module({

@@ -1,4 +1,5 @@
 import { Entity, Column } from 'typeorm';
+import { ObjectType, Field, Int, registerEnumType } from '@nestjs/graphql';
 import { Common } from './Common';
 
 export enum Roles {
@@ -6,8 +7,10 @@ export enum Roles {
   OPERATION = 'operation',
   OPERATION_PLUS = 'operation_plus',
 }
+registerEnumType(Roles, { name: 'Roles' });
 
 @Entity('User')
+@ObjectType()
 export class User extends Common {
   constructor(
     fullname: string,
@@ -25,18 +28,23 @@ export class User extends Common {
     this.role = role;
     this.createdBy = createdBy;
   }
+  @Field(() => String)
   @Column('varchar', { length: 100 })
   fullname: string;
 
+  @Field(() => String)
   @Column('varchar', { length: 100 })
   email: string;
 
+  @Field(() => Int)
   @Column('int', { name: 'country_id' })
   countryId: number;
 
+  @Field(() => String)
   @Column()
   language: string;
 
+  @Field(() => Roles)
   @Column({
     type: 'enum',
     enum: Roles,

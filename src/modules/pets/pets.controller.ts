@@ -1,6 +1,5 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { AuthGuard } from '@nestjs/passport';
 import { Pets } from 'src/entities/Pets';
 import { CustomLogger } from '../loggerModule/logger.service';
 import PetsService from './pets.service';
@@ -17,18 +16,8 @@ export class PetsController {
   }
 
   @Get()
-  //@UseGuards(AuthGuard('jwt'))
+  // @UseGuards(AuthGuard('jwt'))
   async Pets(): Promise<Pets[]> {
     return this.petsService.GetAll();
-  }
-
-  @Get('deneme')
-  async Deneme(): Promise<Relations> {
-    return this.petsService.Add();
-
-  @Get('/all')
-  async AllPets(): Promise<Pets[]> {
-    return this.petsService.GetAll();
-
   }
 }
