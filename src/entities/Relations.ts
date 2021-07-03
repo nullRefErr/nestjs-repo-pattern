@@ -1,4 +1,5 @@
 import { Entity, Column } from 'typeorm';
+import { ObjectType, Field, Int, registerEnumType } from '@nestjs/graphql';
 import { Common } from './Common';
 import { PolymorphicParent } from 'typeorm-polymorphic';
 import { Activity } from './Activity';
@@ -9,8 +10,10 @@ export enum Type {
   DEFAULT = 'default',
   CLOSED_BY = 'closed_by',
 }
+registerEnumType(Type, { name: 'Type' });
 
 @Entity('Relations')
+@ObjectType()
 export class Relations extends Common implements PolymorphicChildInterface {
   constructor(
     owner: Activity | Task,
@@ -29,12 +32,15 @@ export class Relations extends Common implements PolymorphicChildInterface {
   @PolymorphicParent(() => [Activity, Task])
   owner: Activity | Task;
 
+  @Field(() => Int)
   @Column('bigint')
   entityId: number;
 
+  @Field(() => String)
   @Column()
   entityType: string;
 
+  @Field(() => Type)
   @Column({
     type: 'enum',
     enum: Type,
@@ -42,9 +48,11 @@ export class Relations extends Common implements PolymorphicChildInterface {
   })
   type: Type;
 
+  @Field(() => Int)
   @Column({ name: 'related_object_id' })
   relatedObjectId: number;
 
+  @Field(() => String)
   @Column({ name: 'related_object_type' })
   relatedObjectType: string;
 }

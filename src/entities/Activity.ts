@@ -1,10 +1,12 @@
 import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { ObjectType, Field, Int } from '@nestjs/graphql';
 import { Common } from './Common';
 import { ActivityType } from './ActivityType';
 import { PolymorphicChildren } from 'typeorm-polymorphic';
 import { Relations } from './Relations';
 
 @Entity('Activity')
+@ObjectType()
 export class Activity extends Common {
   constructor(
     name: string,
@@ -31,22 +33,28 @@ export class Activity extends Common {
   })
   relations: Relations[];
 
+  @Field(() => String)
   @Column('varchar')
   name: string;
 
+  @Field(() => String, { nullable: true })
   @Column('varchar', { nullable: true })
   description: string;
 
+  @Field(() => Int)
   @Column('int', { name: 'customer_id' })
   customerId: number;
 
+  @Field(() => Int)
   @ManyToOne(() => ActivityType)
   @JoinColumn({ name: 'type_id', referencedColumnName: 'id' })
   typeId: ActivityType;
 
+  @Field()
   @Column('datetime', { name: 'activity_time' })
   activityTime: Date;
 
+  @Field(() => Int)
   @Column('int', { name: 'country_id' })
   countryId: number;
 }
