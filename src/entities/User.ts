@@ -9,7 +9,6 @@ export enum Roles {
 }
 registerEnumType(Roles, { name: 'Roles' });
 
-
 @Entity('User')
 @ObjectType()
 export class User extends Common {

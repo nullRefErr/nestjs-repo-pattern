@@ -7,7 +7,7 @@ import PetsService from '../pets.service';
 
 const pet1 = new Pets();
 pet1.bday = '3';
-pet1.id = '1';
+pet1.id = 1;
 pet1.name = 'Lokum';
 
 const petArray = [pet1];
@@ -32,8 +32,6 @@ describe('PetsController', () => {
     }).compile();
     controller = module.get<PetsController>(PetsController);
     service = module.get<PetsService>(PetsService);
-
-    controller = module.get<PetsController>(PetsController);
   });
   it('should be defined', () => {
     expect(controller).toBeDefined();
