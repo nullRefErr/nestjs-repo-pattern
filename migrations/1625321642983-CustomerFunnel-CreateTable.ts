@@ -20,14 +20,15 @@ export class CustomerFunnelCreateTable1625321642983
         type: 'bigint',
       },
     ];
-    CreateTableHelper(columns, queryRunner, 'Customer_Funnel');
-
-    const foreignKey = new TableForeignKey({
-      columnNames: ['event_type_id'],
-      referencedColumnNames: ['id'],
-      referencedTableName: 'Event_Type',
+    await CreateTableHelper(columns, queryRunner, 'Customer_Funnel', {
+      foreignKeys: [
+        new TableForeignKey({
+          columnNames: ['event_type_id'],
+          referencedColumnNames: ['id'],
+          referencedTableName: 'Event_Type',
+        }),
+      ],
     });
-    await queryRunner.createForeignKey('Customer_Funnel', foreignKey);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

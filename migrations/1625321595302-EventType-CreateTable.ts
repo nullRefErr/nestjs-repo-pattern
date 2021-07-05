@@ -13,7 +13,7 @@ export class EventTypeCreateTable1625321595302 implements MigrationInterface {
         type: 'varchar',
       },
     ];
-    CreateTableHelper(columns, queryRunner, 'Event_Type');
+    await CreateTableHelper(columns, queryRunner, 'Event_Type');
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

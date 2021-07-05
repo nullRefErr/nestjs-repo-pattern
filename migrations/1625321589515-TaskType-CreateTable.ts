@@ -13,7 +13,7 @@ export class TaskTypeCreateTable1625321589515 implements MigrationInterface {
         type: 'varchar',
       },
     ];
-    CreateTableHelper(columns, queryRunner, 'Task_Type');
+    await CreateTableHelper(columns, queryRunner, 'Task_Type');
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

@@ -30,7 +30,7 @@ export class UserCreateTable1625321550622 implements MigrationInterface {
         default: `'${Roles.OPERATION}'`,
       },
     ];
-    CreateTableHelper(columns, queryRunner, 'User');
+    await CreateTableHelper(columns, queryRunner, 'User');
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

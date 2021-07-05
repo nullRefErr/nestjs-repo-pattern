@@ -15,7 +15,7 @@ export class ActivityTypeCreateTable1625321583284
         type: 'varchar',
       },
     ];
-    CreateTableHelper(columns, queryRunner, 'Activity_Type');
+    await CreateTableHelper(columns, queryRunner, 'Activity_Type');
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

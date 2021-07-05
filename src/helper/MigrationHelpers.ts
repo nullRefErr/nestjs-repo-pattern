@@ -1,9 +1,10 @@
 import { QueryRunner, Table } from 'typeorm';
-
+import { MigrationOptions } from '../types/Types';
 export async function CreateTableHelper(
   extraColumns: Array<any>,
   queryRunner: QueryRunner,
   name: string,
+  options?: MigrationOptions,
 ): Promise<void> {
   await queryRunner.createTable(
     new Table({
@@ -44,4 +45,9 @@ export async function CreateTableHelper(
       ],
     }),
   );
+  if (options && options.foreignKeys) {
+    for (const foreignKey of options.foreignKeys) {
+      await queryRunner.createForeignKey(name, foreignKey);
+    }
+  }
 }

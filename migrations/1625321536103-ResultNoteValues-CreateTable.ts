@@ -11,7 +11,7 @@ export class ResultNoteValuesCreateTable1625321536103
         type: 'varchar',
       },
     ];
-    CreateTableHelper(columns, queryRunner, 'Result_Note_Values');
+    await CreateTableHelper(columns, queryRunner, 'Result_Note_Values');
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

@@ -28,7 +28,7 @@ export class RelationsCreateTable1625321668551 implements MigrationInterface {
         default: `'${Type.CLOSED_BY}'`,
       },
     ];
-    CreateTableHelper(columns, queryRunner, 'Relations');
+    await CreateTableHelper(columns, queryRunner, 'Relations');
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

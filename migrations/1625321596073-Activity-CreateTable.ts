@@ -29,13 +29,15 @@ export class ActivityCreateTable1625321596073 implements MigrationInterface {
         type: 'bigint',
       },
     ];
-    CreateTableHelper(columns, queryRunner, 'Activity');
-    const foreignKey = new TableForeignKey({
-      columnNames: ['type_id'],
-      referencedColumnNames: ['id'],
-      referencedTableName: 'Activity_Type',
+    await CreateTableHelper(columns, queryRunner, 'Activity', {
+      foreignKeys: [
+        new TableForeignKey({
+          columnNames: ['type_id'],
+          referencedColumnNames: ['id'],
+          referencedTableName: 'Activity_Type',
+        }),
+      ],
     });
-    await queryRunner.createForeignKey('Activity', foreignKey);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

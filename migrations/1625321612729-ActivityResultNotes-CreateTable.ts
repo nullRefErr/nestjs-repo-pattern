@@ -14,21 +14,20 @@ export class ActivityResultNotesCreateTable1625321612729
         type: 'bigint',
       },
     ];
-    CreateTableHelper(columns, queryRunner, 'Activity_Result_Notes');
-
-    const foreignKey = new TableForeignKey({
-      columnNames: ['activity_id'],
-      referencedColumnNames: ['id'],
-      referencedTableName: 'Activity',
+    await CreateTableHelper(columns, queryRunner, 'Activity_Result_Notes', {
+      foreignKeys: [
+        new TableForeignKey({
+          columnNames: ['activity_id'],
+          referencedColumnNames: ['id'],
+          referencedTableName: 'Activity',
+        }),
+        new TableForeignKey({
+          columnNames: ['result_note_id'],
+          referencedColumnNames: ['id'],
+          referencedTableName: 'Result_Notes',
+        }),
+      ],
     });
-    await queryRunner.createForeignKey('Activity_Result_Notes', foreignKey);
-
-    const foreignKey2 = new TableForeignKey({
-      columnNames: ['result_note_id'],
-      referencedColumnNames: ['id'],
-      referencedTableName: 'Result_Notes',
-    });
-    await queryRunner.createForeignKey('Activity_Result_Notes', foreignKey2);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

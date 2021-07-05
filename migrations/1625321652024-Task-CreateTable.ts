@@ -52,21 +52,20 @@ export class TaskCreateTable1625321652024 implements MigrationInterface {
         type: 'bigint',
       },
     ];
-    CreateTableHelper(columns, queryRunner, 'Task');
-
-    const foreignKey = new TableForeignKey({
-      columnNames: ['type_id'],
-      referencedColumnNames: ['id'],
-      referencedTableName: 'Task_Type',
+    await CreateTableHelper(columns, queryRunner, 'Task', {
+      foreignKeys: [
+        new TableForeignKey({
+          columnNames: ['type_id'],
+          referencedColumnNames: ['id'],
+          referencedTableName: 'Task_Type',
+        }),
+        new TableForeignKey({
+          columnNames: ['assignee_id'],
+          referencedColumnNames: ['id'],
+          referencedTableName: 'User',
+        }),
+      ],
     });
-    await queryRunner.createForeignKey('Task', foreignKey);
-
-    const foreignKey2 = new TableForeignKey({
-      columnNames: ['assignee_id'],
-      referencedColumnNames: ['id'],
-      referencedTableName: 'User',
-    });
-    await queryRunner.createForeignKey('Task', foreignKey2);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

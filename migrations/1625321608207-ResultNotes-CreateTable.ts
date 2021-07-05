@@ -13,13 +13,15 @@ export class ResultNotesCreateTable1625321608207 implements MigrationInterface {
         type: 'bigint',
       },
     ];
-    CreateTableHelper(columns, queryRunner, 'Result_Notes');
-    const foreignKey = new TableForeignKey({
-      columnNames: ['result_note_value_id'],
-      referencedColumnNames: ['id'],
-      referencedTableName: 'Result_Note_Values',
+    await CreateTableHelper(columns, queryRunner, 'Result_Notes', {
+      foreignKeys: [
+        new TableForeignKey({
+          columnNames: ['result_note_value_id'],
+          referencedColumnNames: ['id'],
+          referencedTableName: 'Result_Note_Values',
+        }),
+      ],
     });
-    await queryRunner.createForeignKey('Result_Notes', foreignKey);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
