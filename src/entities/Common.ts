@@ -21,7 +21,7 @@ export abstract class Common extends BaseEntity {
   // @ManyToOne(type => User)
   // @JoinColumn({name:"created_by", referencedColumnName: "id"})
   @Field(() => Int)
-  @Column('int', { name: 'created_by' })
+  @Column('bigint', { name: 'created_by' })
   createdBy: number;
 
   @Field({ nullable: true })
@@ -31,7 +31,7 @@ export abstract class Common extends BaseEntity {
   // @ManyToOne(type => User, {nullable : true})
   // @JoinColumn({name:"updated_by", referencedColumnName: "id"})
   @Field(() => Int, { nullable: true })
-  @Column('int', { nullable: true, name: 'updated_by' })
+  @Column('bigint', { nullable: true, name: 'updated_by' })
   updatedBy?: number | null;
 
   @Field()

@@ -4,7 +4,6 @@ import { Common } from './Common';
 @Entity('Pets')
 @ObjectType()
 export class Pets extends Common {
-
   @Field(() => String)
   @Column()
   name: string;
