@@ -13,6 +13,13 @@ export default class PetsService {
   ) {}
 
   async GetAll(): Promise<Pets[]> {
-    return this.petsRepository.find();
+    const pet = new Pets();
+    pet.bday = '1231';
+    pet.name = 'eren';
+    pet.id = 1;
+    pet.createdBy = 1;
+    pet.createdAt = new Date();
+
+    return [pet];
   }
 }
