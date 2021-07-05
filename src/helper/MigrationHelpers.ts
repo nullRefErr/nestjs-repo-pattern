@@ -11,26 +11,34 @@ export async function CreateTableHelper(
       columns: [
         {
           name: 'id',
-          type: 'varchar',
+          type: 'bigint',
           isArray: false,
           isGenerated: true,
-          generationStrategy: 'uuid',
+          generationStrategy: 'increment',
+          isPrimary: true,
         },
         {
           name: 'created_at',
-          type: 'date',
+          type: 'datetime',
         },
         {
           name: 'created_by',
-          type: 'varchar',
+          type: 'bigint',
         },
         {
           name: 'updated_at',
-          type: 'date',
+          type: 'datetime',
+          isNullable: true,
         },
         {
           name: 'updated_by',
-          type: 'varchar',
+          type: 'bigint',
+          isNullable: true,
+        },
+        {
+          name: 'deleted_at',
+          type: 'datetime',
+          isNullable: true,
         },
         ...extraColumns,
       ],
