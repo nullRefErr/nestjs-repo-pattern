@@ -7,8 +7,8 @@ import { PolymorphicChildren } from 'typeorm-polymorphic';
 import { Relations } from './Relations';
 
 export enum Status {
-  TODO = 1,
-  CLOSED = 0,
+  TODO = '1',
+  CLOSED = '0',
 }
 registerEnumType(Status, { name: 'Status' });
 

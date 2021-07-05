@@ -49,7 +49,7 @@ export class Relations extends Common implements PolymorphicChildInterface {
   type: Type;
 
   @Field(() => Int)
-  @Column({ name: 'related_object_id' })
+  @Column('bigint', { name: 'related_object_id' })
   relatedObjectId: number;
 
   @Field(() => String)
