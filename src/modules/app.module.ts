@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { join } from 'path';
 import { Connection } from 'typeorm';
 import { AuthModule } from './auth/auth.module';
 import { PetsModule } from './pets/pets.module';
@@ -25,9 +27,13 @@ import { PetsModule } from './pets/pets.module';
         cli: {
           migrationsDir: 'dist/migrations/*{.ts,.js}',
         },
-        entities: ['**/dist/entities/*{.ts,.js}'],
+        // entities: ['dist/entities/*{.ts,.js}'],
+        autoLoadEntities: true,
         migrations: ['dist/migrations/*{.ts,.js}'],
       }),
+    }),
+    GraphQLModule.forRoot({
+      autoSchemaFile: join(process.cwd(), 'src/schema.graphql'),
     }),
     PetsModule,
     AuthModule,
